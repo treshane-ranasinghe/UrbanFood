@@ -1,44 +1,92 @@
-/* src/pages/Dashboard.css */
+/* Reset default margin and padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
 
-.dashboard-container {
-  padding: 40px;
-  
+.dashboard {
   min-height: 100vh;
-  text-align: center;
-  color: white;
+  width: 100vw;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
   font-family: 'Segoe UI', sans-serif;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.dashboard-container h1 {
-  font-size: 3rem;
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #3498db, #2ecc71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.dashboard-container h2 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+.dashboard-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.welcome-message {
+  font-size: 1rem;
+  color: #95a5a6;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .dashboard-card {
-  padding: 40px 20px;
-  border-radius: 12px;
+  padding: 30px 20px;
+  border-radius: 15px;
   color: white;
   font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: transform 0.2s, opacity 0.3s;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 150px;
 }
 
 .dashboard-card:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-icon {
+  font-size: 2rem;
+  color: white;
 }

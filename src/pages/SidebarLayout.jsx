@@ -10,9 +10,10 @@ const SidebarLayout = ({ children }) => {
     <div className="layout-container">
       <aside className="sidebar">
         <h2>Urban Foods</h2>
-        <button onClick={() => navigate('/')}>Dashboard</button>
+        <button onClick={() => navigate('/Dashboard')}>Dashboard</button>
         <button onClick={() => navigate('/products')}>Products</button>
         <button onClick={() => navigate('/suppliers')}>Suppliers</button>
+        <button onClick={() => navigate('/Orders')}>Orders</button>
       </aside>
 
       <main className="main-content">

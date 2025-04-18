@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
-import { Products } from './pages/Products';
+import Products from './pages/Products';
 import Suppliers from './pages/Suppliers';
+import Orders from './pages/Orders'; // <-- ✅ Import Orders
 import SidebarLayout from './pages/SidebarLayout';
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Login />} />
 
-        {/* Wrap these pages with sidebar layout */}
+        {/* Dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -21,6 +22,8 @@ export default function App() {
             </SidebarLayout>
           }
         />
+
+        {/* Products */}
         <Route
           path="/products"
           element={
@@ -29,11 +32,23 @@ export default function App() {
             </SidebarLayout>
           }
         />
+
+        {/* Suppliers */}
         <Route
           path="/suppliers"
           element={
             <SidebarLayout>
               <Suppliers />
+            </SidebarLayout>
+          }
+        />
+
+        {/* Orders */}
+        <Route
+          path="/orders"
+          element={
+            <SidebarLayout>
+              <Orders />
             </SidebarLayout>
           }
         />
