@@ -14,7 +14,7 @@ const Suppliers = () => {
   const [editingId, setEditingId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const API_URL = 'http://localhost:8080/api/suppliers';
+  const API_URL = 'http://localhost:8080/urban-food/suppliers';
 
   useEffect(() => {
     fetchSuppliers();
@@ -69,8 +69,9 @@ const Suppliers = () => {
   };
 
   const filteredSuppliers = suppliers.filter(supplier =>
-    supplier.supplierID.toLowerCase().includes(searchTerm.toLowerCase())
+    (supplier?.supplierID || '').toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
 
   return (
     <div className="suppliers-container">
