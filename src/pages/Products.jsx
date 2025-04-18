@@ -2,6 +2,7 @@ import React from 'react';
 import './Products.css';
 import TableView from '../components/TableView';
 import axios from 'axios';
+import ProductList from '../components/ProductList';
 
 export const Products = () => {
   return (
@@ -49,6 +50,10 @@ export const Products = () => {
       <div className="table-container-wrapper">
         <TableView />
       </div>
+
+      <div className="product-list">
+        <ProductList />
+        </div>
     </>
   );
 };
