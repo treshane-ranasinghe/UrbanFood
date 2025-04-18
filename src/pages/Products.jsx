@@ -37,6 +37,11 @@ export const Products = () => {
               <option value="education">Education</option>
             </select>
           </div>
+          <div className="buttons">
+            <div className="button">Add</div>
+            <div className="button">Update</div>
+            <div className="button">Delete</div>
+          </div>
         </div>
       </div>
 
