@@ -80,11 +80,11 @@ const Suppliers = () => {
       <div className="supplier-form">
         <input
           type="text"
-          name="supplierID"
+          name="supplierId"
           placeholder="Supplier ID"
           value={form.supplierId}
           onChange={handleChange}
-          disabled={editingId !== null}
+        
         />
         <input
           type="text"
