@@ -1,12 +1,8 @@
-// src/pages/Dashboard.jsx
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import SidebarLayout from '../pages/SidebarLayout';
 import './Dashboard.css';
 
 export const Dashboard = () => {
-  const navigate = useNavigate();
-
   const sections = [
     { name: 'Products', path: '/products', color: '#ff7f50' },
     { name: 'Suppliers', path: '/suppliers', color: '#6a5acd' },
@@ -17,22 +13,24 @@ export const Dashboard = () => {
   ];
 
   return (
-    <div className="dashboard-container">
-      <h1>Welcome to Urban Foods</h1>
-      <h2>Admin Dashboard</h2>
+    <SidebarLayout>
+      <div className="dashboard-container">
+        <h1>Welcome to Urban Foods</h1>
+        <h2>Admin Dashboard</h2>
 
-      <div className="card-grid">
-        {sections.map((section) => (
-          <div
-            key={section.name}
-            className="dashboard-card"
-            style={{ backgroundColor: section.color }}
-            onClick={() => navigate(section.path)}
-          >
-            {section.name}
-          </div>
-        ))}
+        <div className="card-grid">
+          {sections.map((section) => (
+            <div
+              key={section.name}
+              className="dashboard-card"
+              style={{ backgroundColor: section.color }}
+              onClick={() => window.location.href = section.path}
+            >
+              {section.name}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </SidebarLayout>
   );
 };
