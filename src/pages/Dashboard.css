@@ -1,0 +1,44 @@
+/* src/pages/Dashboard.css */
+
+.dashboard-container {
+  padding: 40px;
+  
+  min-height: 100vh;
+  text-align: center;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-container h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  padding: 40px 20px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
