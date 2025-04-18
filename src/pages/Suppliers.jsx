@@ -5,7 +5,7 @@ import './Suppliers.css';
 const Suppliers = () => {
   const [suppliers, setSuppliers] = useState([]);
   const [form, setForm] = useState({
-    supplierID: '',
+    supplierId: '',
     supplierName: '',
     supplierContact: '',
     supplierAddress: '',
@@ -14,7 +14,7 @@ const Suppliers = () => {
   const [editingId, setEditingId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const API_URL = 'http://localhost:8080/api/suppliers';
+  const API_URL = 'http://localhost:8080/urban-food/suppliers';
 
   useEffect(() => {
     fetchSuppliers();
@@ -41,7 +41,7 @@ const Suppliers = () => {
         await axios.post(API_URL, form);
       }
       setForm({
-        supplierID: '',
+        supplierId: '',
         supplierName: '',
         supplierContact: '',
         supplierAddress: '',
@@ -56,7 +56,7 @@ const Suppliers = () => {
 
   const handleEdit = (supplier) => {
     setForm(supplier);
-    setEditingId(supplier.supplierID);
+    setEditingId(supplier.supplierId);
   };
 
   const handleDelete = async (id) => {
@@ -69,8 +69,9 @@ const Suppliers = () => {
   };
 
   const filteredSuppliers = suppliers.filter(supplier =>
-    supplier.supplierID.toLowerCase().includes(searchTerm.toLowerCase())
+    (supplier?.supplierId || '').toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
 
   return (
     <div className="suppliers-container">
@@ -79,11 +80,11 @@ const Suppliers = () => {
       <div className="supplier-form">
         <input
           type="text"
-          name="supplierID"
+          name="supplierId"
           placeholder="Supplier ID"
-          value={form.supplierID}
+          value={form.supplierId}
           onChange={handleChange}
-          disabled={editingId !== null}
+        
         />
         <input
           type="text"
@@ -145,15 +146,15 @@ const Suppliers = () => {
             </thead>
             <tbody>
               {filteredSuppliers.map((supplier) => (
-                <tr key={supplier.supplierID}>
-                  <td>{supplier.supplierID}</td>
+                <tr key={supplier.supplierId}>
+                  <td>{supplier.supplierId}</td>
                   <td>{supplier.supplierName}</td>
                   <td>{supplier.supplierContact}</td>
                   <td>{supplier.supplierAddress}</td>
                   <td>{supplier.supplierEmail}</td>
                   <td>
                     <button onClick={() => handleEdit(supplier)}>Edit</button>
-                    <button className="delete-btn" onClick={() => handleDelete(supplier.supplierID)}>
+                    <button className="delete-btn" onClick={() => handleDelete(supplier.supplierId)}>
                       Delete
                     </button>
                   </td>
