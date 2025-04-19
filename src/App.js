@@ -4,13 +4,16 @@ import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import Products from './pages/Products';
 import Suppliers from './pages/Suppliers';
-import Orders from './pages/Orders'; // <-- ✅ Import Orders
+import Orders from './pages/Orders';
+import Payments from './pages/Payments';
+import Deliveries from './pages/Deliveries';
 import SidebarLayout from './pages/SidebarLayout';
 
 export default function App() {
   return (
     <Router>
       <Routes>
+        {/* Login */}
         <Route path="/" element={<Login />} />
 
         {/* Dashboard */}
@@ -49,6 +52,26 @@ export default function App() {
           element={
             <SidebarLayout>
               <Orders />
+            </SidebarLayout>
+          }
+        />
+
+        {/* Payments */}
+        <Route
+          path="/payments"
+          element={
+            <SidebarLayout>
+              <Payments />
+            </SidebarLayout>
+          }
+        />
+
+        {/* Deliveries */}
+        <Route
+          path="/deliveries"
+          element={
+            <SidebarLayout>
+              <Deliveries />
             </SidebarLayout>
           }
         />

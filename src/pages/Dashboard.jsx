@@ -12,7 +12,7 @@ export const Dashboard = () => {
     { name: 'Customers', path: '/customers', color: '#20b2aa', icon: <FiUsers size={24} /> },
     { name: 'Orders', path: '/orders', color: '#ffa500', icon: <FiShoppingCart size={24} /> },
     { name: 'Payments', path: '/payments', color: '#00bfff', icon: <FiCreditCard size={24} /> },
-    { name: 'Delivery', path: '/delivery', color: '#32cd32', icon: <FiPackage size={24} /> },
+    { name: 'Delivery', path: '/deliveries', color: '#32cd32', icon: <FiPackage size={24} /> },
   ];
 
   return (
