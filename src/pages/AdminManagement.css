@@ -1,0 +1,116 @@
+.suppliers-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .suppliers-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  
+  .supplier-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .supplier-form input {
+    flex: 1 1 250px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+  }
+  
+  .supplier-form input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .supplier-form button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+  }
+  
+  .supplier-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .search-box {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+  
+  .search-box input {
+    padding: 10px 14px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .supplier-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .supplier-list th,
+  .supplier-list td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .supplier-list th {
+    background-color: #f8f8f8;
+    color: #444;
+    font-weight: 600;
+  }
+  
+  .supplier-list td {
+    color: #555;
+  }
+  
+  .supplier-list button {
+    padding: 6px 12px;
+    margin-right: 5px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .supplier-list .delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .supplier-list .delete-btn:hover {
+    background-color: #b02a37;
+  }
+  
+  .supplier-list button:hover {
+    opacity: 0.9;
+  }
+  
+  .no-suppliers {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-style: italic;
+  }
+  

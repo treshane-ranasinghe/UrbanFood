@@ -13,6 +13,8 @@ export const Dashboard = () => {
     { name: 'Orders', path: '/orders', color: '#ffa500', icon: <FiShoppingCart size={24} /> },
     { name: 'Payments', path: '/payments', color: '#00bfff', icon: <FiCreditCard size={24} /> },
     { name: 'Delivery', path: '/deliveries', color: '#32cd32', icon: <FiPackage size={24} /> },
+    { name: 'AdminManagement', path: '/AdminManagement', color: '#ff7f50', icon: <FiPackage size={24} /> },
+    
   ];
 
   return (

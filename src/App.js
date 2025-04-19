@@ -8,6 +8,7 @@ import Orders from './pages/Orders';
 import Payments from './pages/Payments';
 import Deliveries from './pages/Deliveries';
 import Customer from './pages/Customer';
+import AdminManagement from './pages/AdminManagement';
 import SidebarLayout from './pages/SidebarLayout';
 
 export default function App() {
@@ -86,6 +87,17 @@ export default function App() {
             </SidebarLayout>
           }
         />
+
+        {/* admin */}
+        <Route
+          path="/adminManagement"
+          element={
+            <SidebarLayout>
+              <AdminManagement />
+            </SidebarLayout>
+          }
+        />
+
       </Routes>
       
     </Router>
