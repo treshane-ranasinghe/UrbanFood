@@ -6,18 +6,16 @@ const Product = () => {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({
     productId: '',
-    name: '',
-    description: '',
-    price: '',
-    stockQty: '',
+    productName: '',
+    productDescription: '',
+    productPrice: '',
+    stockQuantity: '',
     category: '',
-    createdAt: '',
-    updatedAt: ''
   });
   const [editingId, setEditingId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const API_URL = 'http://localhost:8080/api/products';
+  const API_URL = 'http://localhost:8080/urban-food/products';
 
   useEffect(() => {
     fetchProducts();
@@ -45,13 +43,11 @@ const Product = () => {
       }
       setForm({
         productId: '',
-        name: '',
-        description: '',
-        price: '',
-        stockQty: '',
+        productName: '',
+        productDescription: '',
+        productPrice: '',
+        stockQuantity: '',
         category: '',
-        createdAt: '',
-        updatedAt: ''
       });
       setEditingId(null);
       fetchProducts();
@@ -74,6 +70,7 @@ const Product = () => {
     }
   };
 
+  // Fixed search filter
   const filteredProducts = products.filter(product =>
     product.productId.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -83,14 +80,49 @@ const Product = () => {
       <h2>Product Management</h2>
 
       <div className="product-form">
-        <input type="text" name="productId" placeholder="Product ID" value={form.productId} onChange={handleChange} disabled={editingId !== null} />
-        <input type="text" name="name" placeholder="Product Name" value={form.name} onChange={handleChange} />
-        <input type="text" name="description" placeholder="Description" value={form.description} onChange={handleChange} />
-        <input type="number" name="price" placeholder="Price" value={form.price} onChange={handleChange} />
-        <input type="number" name="stockQty" placeholder="Stock Quantity" value={form.stockQty} onChange={handleChange} />
-        <input type="text" name="category" placeholder="Category" value={form.category} onChange={handleChange} />
-        <input type="datetime-local" name="createdAt" value={form.createdAt} onChange={handleChange} />
-        <input type="datetime-local" name="updatedAt" value={form.updatedAt} onChange={handleChange} />
+        <input
+          type="text"
+          name="productId"
+          placeholder="Product ID"
+          value={form.productId}
+          onChange={handleChange}
+          disabled={editingId !== null}
+        />
+        <input
+          type="text"
+          name="productName"
+          placeholder="Product Name"
+          value={form.productName} // Fixed to match the state key
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="productDescription"
+          placeholder="Description"
+          value={form.productDescription} // Fixed to match the state key
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="productPrice"
+          placeholder="Price"
+          value={form.productPrice} // Fixed to match the state key
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="stockQuantity"
+          placeholder="Stock Quantity"
+          value={form.stockQuantity} // Fixed to match the state key
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="category"
+          placeholder="Category"
+          value={form.category}
+          onChange={handleChange}
+        />
         <button onClick={handleSubmit}>
           {editingId !== null ? 'Update Product' : 'Add Product'}
         </button>
@@ -119,8 +151,6 @@ const Product = () => {
                 <th>Price</th>
                 <th>Stock</th>
                 <th>Category</th>
-                <th>Created At</th>
-                <th>Updated At</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -128,13 +158,11 @@ const Product = () => {
               {filteredProducts.map((product) => (
                 <tr key={product.productId}>
                   <td>{product.productId}</td>
-                  <td>{product.name}</td>
-                  <td>{product.description}</td>
-                  <td>{product.price}</td>
-                  <td>{product.stockQty}</td>
+                  <td>{product.productName}</td> {/* Fixed to match the state key */}
+                  <td>{product.productDescription}</td> {/* Fixed to match the state key */}
+                  <td>{product.productPrice}</td> {/* Fixed to match the state key */}
+                  <td>{product.stockQuantity}</td> {/* Fixed to match the state key */}
                   <td>{product.category}</td>
-                  <td>{product.createdAt}</td>
-                  <td>{product.updatedAt}</td>
                   <td>
                     <button onClick={() => handleEdit(product)}>Edit</button>
                     <button className="delete-btn" onClick={() => handleDelete(product.productId)}>
