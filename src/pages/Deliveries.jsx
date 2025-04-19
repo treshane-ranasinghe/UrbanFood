@@ -69,8 +69,9 @@ const Deliveries = () => {
   };
 
   const filteredDeliveries = deliveries.filter(delivery =>
-    delivery.orderId.toLowerCase().includes(searchTerm.toLowerCase())
+    delivery.orderId?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
 
   return (
     <div className="deliveries-container">
