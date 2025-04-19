@@ -7,6 +7,7 @@ import Suppliers from './pages/Suppliers';
 import Orders from './pages/Orders';
 import Payments from './pages/Payments';
 import Deliveries from './pages/Deliveries';
+import Customer from './pages/Customer';
 import SidebarLayout from './pages/SidebarLayout';
 
 export default function App() {
@@ -75,7 +76,18 @@ export default function App() {
             </SidebarLayout>
           }
         />
+
+        {/* Customers */}
+        <Route
+          path="/customer"
+          element={
+            <SidebarLayout>
+              <Customer />
+            </SidebarLayout>
+          }
+        />
       </Routes>
+      
     </Router>
   );
 }

@@ -4,15 +4,6 @@ import './Orders.css';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const [form, setForm] = useState({
-    orderId: '',
-    productId: '',
-    quantity: '',
-    totalAmount: '',
-    orderDate: '',
-    customerID: ''
-  });
-  const [editingId, setEditingId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
   const API_URL = 'http://localhost:8080/urban-food/orders';
@@ -28,37 +19,6 @@ const Orders = () => {
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
-  };
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async () => {
-    try {
-      if (editingId !== null) {
-        await axios.put(`${API_URL}/${editingId}`, form);
-      } else {
-        await axios.post(API_URL, form);
-      }
-      setForm({
-        orderId: '',
-        productId: '',
-        quantity: '',
-        totalAmount: '',
-        orderDate: '',
-        customerID: ''
-      });
-      setEditingId(null);
-      fetchOrders();
-    } catch (error) {
-      console.error('Error saving order:', error);
-    }
-  };
-
-  const handleEdit = (order) => {
-    setForm(order);
-    setEditingId(order.orderId);
   };
 
   const handleDelete = async (id) => {
@@ -77,56 +37,6 @@ const Orders = () => {
   return (
     <div className="orders-container">
       <h2>Order Management</h2>
-
-      <div className="order-form">
-        <input
-          type="text"
-          name="orderId"
-          placeholder="Order ID"
-          value={form.orderId}
-          onChange={handleChange}
-          disabled={editingId !== null}
-        />
-        <input
-          type="text"
-          name="productId"
-          placeholder="Product ID"
-          value={form.productId}
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="quantity"
-          placeholder="Quantity"
-          value={form.quantity}
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          step="0.01"
-          name="totalAmount"
-          placeholder="Total Amount"
-          value={form.totalAmount}
-          onChange={handleChange}
-        />
-        <input
-          type="date"
-          name="orderDate"
-          placeholder="Order Date"
-          value={form.orderDate}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="customerID"
-          placeholder="Customer ID"
-          value={form.customerID}
-          onChange={handleChange}
-        />
-        <button onClick={handleSubmit}>
-          {editingId !== null ? 'Update Order' : 'Add Order'}
-        </button>
-      </div>
 
       <div className="search-box">
         <input
@@ -163,7 +73,6 @@ const Orders = () => {
                   <td>{order.orderDate}</td>
                   <td>{order.customerID}</td>
                   <td>
-                    <button onClick={() => handleEdit(order)}>Edit</button>
                     <button className="delete-btn" onClick={() => handleDelete(order.orderId)}>
                       Delete
                     </button>
