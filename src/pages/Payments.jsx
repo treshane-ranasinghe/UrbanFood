@@ -110,6 +110,7 @@ const Payments = () => {
           placeholder="Amount"
           value={form.amount}
           onChange={handleChange}
+          readOnly
         />
         <input
           type="date"

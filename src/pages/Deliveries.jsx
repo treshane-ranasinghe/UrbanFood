@@ -15,11 +15,19 @@ const Deliveries = () => {
   const fetchDeliveries = async () => {
     try {
       const response = await axios.get(API_URL);
-      setDeliveries(response.data);
+      const normalized = response.data.map(delivery => ({
+        deliveryId: delivery.DELIVERYID,
+        orderId: delivery.ORDERID,
+        deliveryStatus: delivery.DELIVERYSTATUS,
+        deliveryAddress: delivery.DELIVERYADDRESS,
+        deliveryDate: delivery.DELIVERYDATE,
+      }));
+      setDeliveries(normalized);
     } catch (error) {
       console.error('Error fetching deliveries:', error);
     }
   };
+  
 
   const handleDelete = async (id) => {
     try {
@@ -31,8 +39,9 @@ const Deliveries = () => {
   };
 
   const filteredDeliveries = deliveries.filter(delivery =>
-    delivery.orderId.toLowerCase().includes(searchTerm.toLowerCase())
+    delivery.orderId?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
 
   return (
     <div className="deliveries-container">
@@ -69,7 +78,7 @@ const Deliveries = () => {
                   <td>{delivery.orderId}</td>
                   <td>{delivery.deliveryStatus}</td>
                   <td>{delivery.deliveryAddress}</td>
-                  <td>{delivery.deliveryDate}</td>
+                  <td>{new Date(delivery.deliveryDate).toLocaleDateString()}</td>
                   <td>
                     <button className="delete-btn" onClick={() => handleDelete(delivery.deliveryId)}>
                       Delete
