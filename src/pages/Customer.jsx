@@ -21,10 +21,20 @@ const Customer = () => {
     fetchCustomers();
   }, []);
 
+  const normalizeCustomer = (customer) => ({
+    customerID: customer.CUSTOMERID,
+    customerUsername: customer.CUSTOMERUSERNAME,
+    customerEmail: customer.CUSTOMEREMAIL,
+    customerAddress: customer.CUSTOMERADDRESS,
+    customerContact: customer.CUSTOMERCONTACT,
+    customerPassword: customer.CUSTOMERPASSWORD,
+  });
+  
   const fetchCustomers = async () => {
     try {
       const response = await axios.get(API_URL);
-      setCustomers(response.data);
+      const normalized = response.data.map(normalizeCustomer);
+      setCustomers(normalized);
     } catch (error) {
       console.error('Error fetching customers:', error);
     }
@@ -81,7 +91,8 @@ const Customer = () => {
     } else {
       try {
         const response = await axios.get(`${API_URL}/search?keyword=${term}`);
-        setCustomers(response.data);
+        const normalized = response.data.map(normalizeCustomer);
+        setCustomers(normalized);
       } catch (error) {
         console.error('Error searching customer:', error);
       }
