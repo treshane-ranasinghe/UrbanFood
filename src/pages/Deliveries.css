@@ -1,135 +1,100 @@
 .deliveries-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 460px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.deliveries-container h2 {
+  text-align: center;
   
-  .deliveries-container h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  
-  .delivery-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 30px;
-    justify-content: space-between;
-  }
-  
-  .delivery-form input {
-    flex: 1 1 30%;
-    min-width: 250px;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .delivery-form input:focus {
-    border-color: #6a5acd;
-    outline: none;
-  }
-  
-  .delivery-form button {
-    flex: 1 1 100%;
-    padding: 14px;
-    background: #32cd32;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .delivery-form button:hover {
-    background: #28a428;
-  }
-  
-  .search-box {
-    margin-bottom: 20px;
-    text-align: right;
-  }
-  
-  .search-box input {
-    padding: 10px 14px;
-    width: 250px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border 0.3s;
-  }
-  
-  .search-box input:focus {
-    border-color: #6a5acd;
-    outline: none;
-  }
-  
-  .delivery-list {
-    overflow-x: auto;
-  }
-  
-  .delivery-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 15px;
-  }
-  
-  .delivery-list th,
-  .delivery-list td {
-    padding: 14px 20px;
-    border-bottom: 1px solid #eee;
-    text-align: left;
-  }
-  
-  .delivery-list th {
-    background: #f6f6f6;
-    color: #555;
-  }
-  
-  .delivery-list td {
-    color: #333;
-  }
-  
-  .delivery-list button {
-    padding: 6px 12px;
-    margin-right: 6px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .delivery-list button:hover {
-    opacity: 0.9;
-  }
-  
-  .delivery-list .delete-btn {
-    background-color: #ff5e5e;
-    color: white;
-  }
-  
-  .delivery-list .delete-btn:hover {
-    background-color: #e74c3c;
-  }
-  
-  .delivery-list tr:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .no-deliveries {
-    text-align: center;
-    padding: 20px;
-    color: #999;
-    font-style: italic;
-  }
-  
+  margin-top: -350px;
+  color: #333;
+}
+
+
+
+
+
+
+.delivery-list {
+  overflow-x: auto;
+}
+
+.delivery-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.delivery-list th,
+.delivery-list td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.delivery-list th {
+  background: #f6f6f6;
+  color: #555;
+}
+
+.delivery-list td {
+  color: #333;
+}
+
+.delivery-list button {
+  padding: 6px 12px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delivery-list button:hover {
+  opacity: 0.9;
+}
+
+.delivery-list .delete-btn {
+  background-color: #ff5e5e;
+  color: white;
+}
+
+.delivery-list .delete-btn:hover {
+  background-color: #e74c3c;
+}
+
+.delivery-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+.no-deliveries {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-style: italic;
+}
+
+.search-box {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.search-box input {
+  padding: 10px 14px;
+  width: 250px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #6a5acd;
+  outline: none;
+}
