@@ -17,7 +17,7 @@ const AdminManagement = () => {
 
   const fetchAdmins = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/admin');
+      const response = await axios.get('http://localhost:8080/urban-food/admin');
       setAdmins(response.data);
     } catch (error) {
       console.error('Error fetching admins:', error);
@@ -34,16 +34,18 @@ const AdminManagement = () => {
 
   const handleCreateOrUpdate = async () => {
     try {
-      await axios.post('http://localhost:8080/admin', formData);
+      const isExistingAdmin = admins.some((a) => a.adminID === formData.adminID);
+
+      if (isExistingAdmin) {
+        // Update existing admin (PUT)
+        await axios.put('http://localhost:8080/urban-food/admin', formData);
+      } else {
+        // Create new admin (POST)
+        await axios.post('http://localhost:8080/urban-food/admin', formData);
+      }
+
       fetchAdmins();
-      setFormData({
-        adminID: '',
-        adminEmail: '',
-        adminUsername: '',
-        adminAddress: '',
-        adminContact: '',
-        adminPassword: '',
-      });
+      clearForm();
     } catch (error) {
       console.error('Error saving admin:', error);
     }
@@ -55,11 +57,22 @@ const AdminManagement = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/admin/${id}`);
+      await axios.delete(`http://localhost:8080/urban-food/admin/${id}`);
       fetchAdmins();
     } catch (error) {
       console.error('Error deleting admin:', error);
     }
+  };
+
+  const clearForm = () => {
+    setFormData({
+      adminID: '',
+      adminEmail: '',
+      adminUsername: '',
+      adminAddress: '',
+      adminContact: '',
+      adminPassword: '',
+    });
   };
 
   const filteredAdmins = admins.filter((admin) =>
@@ -123,9 +136,14 @@ const AdminManagement = () => {
           onChange={handleChange}
         />
 
-        <button onClick={handleCreateOrUpdate}>
-          {formData.adminID ? 'Save Admin' : 'Add Admin'}
-        </button>
+        <div className="form-buttons">
+          <button onClick={handleCreateOrUpdate}>
+            {admins.some((a) => a.adminID === formData.adminID) ? 'Update Admin' : 'Add Admin'}
+          </button>
+          <button className="clear-btn" onClick={clearForm}>
+            Clear
+          </button>
+        </div>
       </div>
 
       <div className="supplier-list">

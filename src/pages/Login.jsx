@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Login.css';
-import bgImage from '../assets/login-pic.jpg'; // ✅ import your image
+import bgImage from '../assets/login-pic.jpg';
 
 export const Login = () => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ username: '', password: '' });
 
-  const handleLogin = () => {
-    if (credentials.username === 'admin' && credentials.password === 'admin123') {
-      navigate('/dashboard');
-    } else {
-      alert('Invalid credentials');
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/admin/login', {
+        username: credentials.username,
+        password: credentials.password
+      });
+
+      const result = response.data.result;
+
+      if (result === 'success') {
+        navigate('/dashboard');
+      } else {
+        alert('Invalid username or password');
+      }
+
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('An error occurred while logging in. Please try again.');
     }
   };
 
