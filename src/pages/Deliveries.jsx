@@ -23,11 +23,19 @@ const Deliveries = () => {
   const fetchDeliveries = async () => {
     try {
       const response = await axios.get(API_URL);
-      setDeliveries(response.data);
+      const normalized = response.data.map(delivery => ({
+        deliveryId: delivery.DELIVERYID,
+        orderId: delivery.ORDERID,
+        deliveryStatus: delivery.DELIVERYSTATUS,
+        deliveryAddress: delivery.DELIVERYADDRESS,
+        deliveryDate: delivery.DELIVERYDATE,
+      }));
+      setDeliveries(normalized);
     } catch (error) {
       console.error('Error fetching deliveries:', error);
     }
   };
+  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -150,7 +158,7 @@ const Deliveries = () => {
                   <td>{delivery.orderId}</td>
                   <td>{delivery.deliveryStatus}</td>
                   <td>{delivery.deliveryAddress}</td>
-                  <td>{delivery.deliveryDate}</td>
+                  <td>{new Date(delivery.deliveryDate).toLocaleDateString()}</td>
                   <td>
                     <button onClick={() => handleEdit(delivery)}>Edit</button>
                     <button className="delete-btn" onClick={() => handleDelete(delivery.deliveryId)}>
