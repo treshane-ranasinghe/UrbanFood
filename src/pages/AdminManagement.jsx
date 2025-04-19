@@ -17,7 +17,7 @@ const AdminManagement = () => {
 
   const fetchAdmins = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/admin');
+      const response = await axios.get('http://localhost:8080/urban-food/admin');
       setAdmins(response.data);
     } catch (error) {
       console.error('Error fetching admins:', error);
@@ -34,7 +34,7 @@ const AdminManagement = () => {
 
   const handleCreateOrUpdate = async () => {
     try {
-      await axios.post('http://localhost:8080/admin', formData);
+      await axios.post('http://localhost:8080/urban-food/admin', formData);
       fetchAdmins();
       setFormData({
         adminID: '',
@@ -55,7 +55,7 @@ const AdminManagement = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/admin/${id}`);
+      await axios.delete(`http://localhost:8080/urban-food/admin/${id}`);
       fetchAdmins();
     } catch (error) {
       console.error('Error deleting admin:', error);
