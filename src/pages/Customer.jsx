@@ -15,7 +15,7 @@ const Customer = () => {
   const [editingId, setEditingId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const API_URL = 'http://localhost:8080/customers';
+  const API_URL = 'http://localhost:8080/urban-food/customers';
 
   useEffect(() => {
     fetchCustomers();
