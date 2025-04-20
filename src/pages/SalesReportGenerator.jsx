@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './ReviewManagement.css'; // Reusing your CSS
+import './ReviewManagement.css';
 
 const SalesReportGenerator = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [report, setReport] = useState(null);
-  const [message, setMessage] = useState('');
+  const [report, setReport] = useState(null); // updated state
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleGenerateReport = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/urban-food/salesreport/generate', {
+      const response = await axios.post('http://localhost:8080/salesreport/generate', {
         startDate,
         endDate,
       });
 
-      setReport(response.data); // set the full report data
-      setMessage('Sales Report generated successfully!');
+      setReport(response.data);
+      setErrorMessage('');
     } catch (error) {
       console.error('Error generating sales report:', error);
-      setMessage('Failed to generate report. Please try again.');
+      setErrorMessage('Failed to generate report. Please try again.');
       setReport(null);
     }
   };
@@ -67,21 +67,17 @@ const SalesReportGenerator = () => {
         </div>
       </form>
 
-      {message && (
-        <div style={{ textAlign: 'center', marginTop: '20px', color: '#6a5acd' }}>
-          <strong>{message}</strong>
+      {errorMessage && (
+        <div style={{ textAlign: 'center', marginTop: '20px', color: 'red' }}>
+          <strong>{errorMessage}</strong>
         </div>
       )}
 
       {report && (
-        <div className="report-result" style={{ marginTop: '30px', textAlign: 'center' }}>
-          <h3>Sales Report Summary</h3>
-          <table className="report-table" style={{ margin: '0 auto', marginTop: '15px' }}>
+        <div className="report-display" style={{ marginTop: '30px' }}>
+          <h3 style={{ textAlign: 'center', color: '#6a5acd' }}>Sales Report</h3>
+          <table className="report-table">
             <tbody>
-              <tr>
-                <td><strong>Sales Report ID:</strong></td>
-                <td>{report.salesReportId}</td>
-              </tr>
               <tr>
                 <td><strong>Start Date:</strong></td>
                 <td>{new Date(report.startDate).toLocaleDateString()}</td>
@@ -96,7 +92,7 @@ const SalesReportGenerator = () => {
               </tr>
               <tr>
                 <td><strong>Total Sales Amount:</strong></td>
-                <td>${report.totalSalesAmount.toFixed(2)}</td>
+                <td>Rs. {Number(report.totalSalesAmount).toFixed(2)}</td>
               </tr>
               <tr>
                 <td><strong>Generated At:</strong></td>
