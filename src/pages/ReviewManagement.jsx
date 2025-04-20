@@ -12,7 +12,7 @@ const ReviewManagement = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/reviews');
+      const response = await axios.get('http://localhost:8080/urban-food/reviews');
       setReviews(response.data);
     } catch (error) {
       console.error('Error fetching reviews:', error);
