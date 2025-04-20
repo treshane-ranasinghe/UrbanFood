@@ -10,24 +10,32 @@ export const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/urban-food/admin/login', {
-        username: credentials.username,
-        password: credentials.password
-      });
-
-      const result = response.data.result;
-
-      if (result === 'success') {
+      const response = await axios.post(
+        'http://localhost:8080/urban-food/admin/login', 
+        {
+          adminUsername: credentials.username,
+          adminPassword: credentials.password
+        }
+      );
+  
+      // Log the entire response to check its structure
+      console.log(response.data);
+  
+      // Assuming the backend returns "SUCCESS" or "FAILURE" as a string
+      const result = response.data;  // Now response.data is a string (SUCCESS or FAILURE)
+  
+      if (result === 'SUCCESS') {
         navigate('/dashboard');
       } else {
         alert('Invalid username or password');
       }
-
+  
     } catch (error) {
       console.error('Login error:', error);
       alert('An error occurred while logging in. Please try again.');
     }
   };
+  
 
   return (
     <div
