@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   FiBox, FiTruck, FiUsers, FiShoppingCart,
-  FiCreditCard, FiPackage
+  FiCreditCard, FiPackage, FiLogOut
 } from 'react-icons/fi';
 import './Dashboard.css';
 import bgImage from '../assets/dash-img.jpg';
@@ -19,8 +19,17 @@ export const Dashboard = () => {
     { name: 'Delivery', path: '/deliveries', color: '#32cd32', icon: <FiPackage size={24} /> },
     { name: 'Admin Management', path: '/AdminManagement', color: '#ff7f50', icon: <FiPackage size={24} /> },
     { name: 'Review Management', path: '/ReviewManagement', color: '#20e3cc', icon: <FiPackage size={24} /> },
-    { name: 'sales report', path: '/salesReportGenerator', color: '#20e3cc', icon: <FiPackage size={24} /> },
+    { name: 'Sales Report', path: '/salesReportGenerator', color: '#20e3cc', icon: <FiPackage size={24} /> },
   ];
+
+  const handleLogout = () => {
+    // Clear any local storage/session if used
+    localStorage.clear(); // or sessionStorage.clear();
+  
+    // Navigate to login page
+    navigate('/');
+
+  };
 
   return (
     <div
@@ -33,9 +42,11 @@ export const Dashboard = () => {
       }}
     >
       <div className="dashboard-header">
-        
         <h2>Admin Dashboard</h2>
-        
+        <button onClick={handleLogout} className="logout-btn" title="Logout">
+          <FiLogOut size={20} style={{ marginRight: '5px' }} />
+          Logout
+        </button>
       </div>
 
       <div className="card-grid">
