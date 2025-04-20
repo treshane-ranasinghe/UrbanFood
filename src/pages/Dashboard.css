@@ -41,6 +41,7 @@ html, body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-left: -300px;
+  margin-top: -10px;
 }
 
 .dashboard-header h2 {
@@ -49,6 +50,8 @@ html, body {
   color: black;
   font-weight: 500;
   margin-left: -300px;
+  margin-top: -10px;
+;
 }
 
 
@@ -62,6 +65,7 @@ html, body {
   padding: 0 20px;
   box-sizing: border-box;
   margin-left: -250px;
+  margin-top: -20px;
 }
 
 .dashboard-card {

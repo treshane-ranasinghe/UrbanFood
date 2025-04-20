@@ -1,0 +1,72 @@
+.deliveries-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 460px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .deliveries-container h2 {
+    text-align: center;
+    margin-top: -350px;
+    color: #333;
+  }
+  
+  .delivery-list {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  .delivery-list table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  
+  .delivery-list th,
+  .delivery-list td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+  }
+  
+  .delivery-list input[type="text"],
+  .delivery-list input[type="date"] {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+    box-sizing: border-box;
+  }
+  
+  .delivery-list input:focus {
+    border-color: #6a5acd;
+    outline: none;
+  }
+  
+  .delivery-list button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #6a5acd;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delivery-list button:hover {
+    background-color: #5a4acb;
+  }
+  
+  .status-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #6a5acd;
+    font-weight: bold;
+  }
+  

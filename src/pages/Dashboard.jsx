@@ -19,6 +19,7 @@ export const Dashboard = () => {
     { name: 'Delivery', path: '/deliveries', color: '#32cd32', icon: <FiPackage size={24} /> },
     { name: 'Admin Management', path: '/AdminManagement', color: '#ff7f50', icon: <FiPackage size={24} /> },
     { name: 'Review Management', path: '/ReviewManagement', color: '#20e3cc', icon: <FiPackage size={24} /> },
+    { name: 'sales report', path: '/salesReportGenerator', color: '#20e3cc', icon: <FiPackage size={24} /> },
   ];
 
   return (
@@ -32,7 +33,7 @@ export const Dashboard = () => {
       }}
     >
       <div className="dashboard-header">
-        <h1>Welcome to Urban Foods</h1>
+        
         <h2>Admin Dashboard</h2>
         
       </div>

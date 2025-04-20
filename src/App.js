@@ -10,6 +10,7 @@ import Deliveries from './pages/Deliveries';
 import Customer from './pages/Customer';
 import AdminManagement from './pages/AdminManagement';
 import ReviewManagement from './pages/ReviewManagement';
+import SalesReportGenerator from './pages/SalesReportGenerator';
 import SidebarLayout from './pages/SidebarLayout';
 
 
@@ -106,6 +107,16 @@ export default function App() {
           element={
             <SidebarLayout>
               <ReviewManagement />
+            </SidebarLayout>
+          }
+        />
+
+        {/* sales report */}
+        <Route
+          path="/salesreportgenerator"
+          element={
+            <SidebarLayout>
+              <SalesReportGenerator />
             </SidebarLayout>
           }
         />
