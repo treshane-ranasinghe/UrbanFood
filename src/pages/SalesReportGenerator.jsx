@@ -12,7 +12,7 @@ const SalesReportGenerator = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/salesreport/generate', {
+      const response = await axios.post('http://localhost:8080/urban-food/salesreport/generate', {
         startDate,
         endDate,
       });
