@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 import bgImage from '../assets/login-pic.jpg';
+import userIcon from '../assets/user.png'; // used for both inputs
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -39,8 +40,10 @@ export const Login = () => {
           <div className="text">Login</div>
           <div className="underline"></div>
         </div>
+
         <div className="inputs">
           <div className="input">
+            <img src={userIcon} alt="user" className="icon" />
             <input
               type="text"
               placeholder="Enter your Username"
@@ -48,7 +51,9 @@ export const Login = () => {
               onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
             />
           </div>
+
           <div className="input">
+            <img src={userIcon} alt="user" className="icon" />
             <input
               type="password"
               placeholder="Enter your Password"
@@ -57,6 +62,7 @@ export const Login = () => {
             />
           </div>
         </div>
+
         <div className="submit-container">
           <div className="submit" onClick={handleLogin}>
             Login

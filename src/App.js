@@ -9,7 +9,9 @@ import Payments from './pages/Payments';
 import Deliveries from './pages/Deliveries';
 import Customer from './pages/Customer';
 import AdminManagement from './pages/AdminManagement';
+import ReviewManagement from './pages/ReviewManagement';
 import SidebarLayout from './pages/SidebarLayout';
+
 
 export default function App() {
   return (
@@ -94,6 +96,16 @@ export default function App() {
           element={
             <SidebarLayout>
               <AdminManagement />
+            </SidebarLayout>
+          }
+        />
+
+        {/* admin */}
+        <Route
+          path="/reviewmanagement"
+          element={
+            <SidebarLayout>
+              <ReviewManagement />
             </SidebarLayout>
           }
         />

@@ -17,6 +17,8 @@ const SidebarLayout = ({ children }) => {
         <button onClick={() => navigate('/customer')}>Customers</button>
         <button onClick={() => navigate('/payments')}>Payments</button>
         <button onClick={() => navigate('/deliveries')}>Delivery</button>
+        <button onClick={() => navigate('/AdminManagement')}>Admin Management</button>
+        <button onClick={() => navigate('/ReviewManagement')}>Review Management</button>
       </aside>
 
       <main className="main-content">

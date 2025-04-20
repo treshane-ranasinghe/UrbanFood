@@ -1,7 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiBox, FiTruck, FiUsers, FiShoppingCart, FiCreditCard, FiPackage } from 'react-icons/fi';
+import {
+  FiBox, FiTruck, FiUsers, FiShoppingCart,
+  FiCreditCard, FiPackage
+} from 'react-icons/fi';
 import './Dashboard.css';
+import bgImage from '../assets/dash-img.jpg';
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -14,15 +18,23 @@ export const Dashboard = () => {
     { name: 'Payments', path: '/payments', color: '#00bfff', icon: <FiCreditCard size={24} /> },
     { name: 'Delivery', path: '/deliveries', color: '#32cd32', icon: <FiPackage size={24} /> },
     { name: 'Admin Management', path: '/AdminManagement', color: '#ff7f50', icon: <FiPackage size={24} /> },
-    
+    { name: 'Review Management', path: '/ReviewManagement', color: '#20e3cc', icon: <FiPackage size={24} /> },
   ];
 
   return (
-    <div className="dashboard">
+    <div
+      className="dashboard"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="dashboard-header">
         <h1>Welcome to Urban Foods</h1>
         <h2>Admin Dashboard</h2>
-        <p className="welcome-message">Manage your food business efficiently</p>
+        
       </div>
 
       <div className="card-grid">
