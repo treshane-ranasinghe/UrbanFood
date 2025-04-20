@@ -2,7 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   FiBox, FiTruck, FiUsers, FiShoppingCart,
-  FiCreditCard, FiPackage, FiLogOut
+  FiCreditCard, FiPackage, FiLogOut , FiShield,
+  FiMessageCircle, FiBarChart2
 } from 'react-icons/fi';
 import './Dashboard.css';
 import bgImage from '../assets/dash-img.jpg';
@@ -17,9 +18,9 @@ export const Dashboard = () => {
     { name: 'Orders', path: '/orders', color: '#ffa500', icon: <FiShoppingCart size={24} /> },
     { name: 'Payments', path: '/payments', color: '#00bfff', icon: <FiCreditCard size={24} /> },
     { name: 'Delivery', path: '/deliveries', color: '#32cd32', icon: <FiPackage size={24} /> },
-    { name: 'Admin Management', path: '/AdminManagement', color: '#ff7f50', icon: <FiPackage size={24} /> },
-    { name: 'Review Management', path: '/ReviewManagement', color: '#20e3cc', icon: <FiPackage size={24} /> },
-    { name: 'Sales Report', path: '/salesReportGenerator', color: '#20e3cc', icon: <FiPackage size={24} /> },
+    { name: 'Admin Management', path: '/AdminManagement', color: '#ff7f50', icon: <FiShield size={24} /> },
+    { name: 'Review Management', path: '/ReviewManagement', color: '#20e3cc', icon: <FiMessageCircle size={24} /> },
+    { name: 'Sales Report', path: '/salesReportGenerator', color: '#20e3cc', icon: <FiBarChart2 size={24} /> },
   ];
 
   const handleLogout = () => {
